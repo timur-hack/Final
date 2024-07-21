@@ -51,6 +51,18 @@ touch start_robot.launch
 </launch> (создано с использованием ИИ)
 # 10 Сборка рабочего пространства (скрин 12)
 После добавления launch-файла необходимо пересобрать рабочее пространство
+# 11 Создание launch-файла для веб-камеры скрин 13,14
+<launch>
+  <!-- Узел для работы с веб-камерой -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen"/>
+  
+  <!-- Узел для запуска rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" output="screen">
+    <arg name="config" default="$(find usb_cam)/rviz/camera_config.rviz"/>
+  </node>
+</launch>
+создано с использованием ИИ
+Сохраняю файл в папку launch под названием start_webcam.launch
 catkin_make
 # 11 Установка пакета (скрин 13)
 sudo apt-get install ros-noetic-usb-cam
