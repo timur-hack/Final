@@ -1,0 +1,9 @@
+<launch>
+  <!-- Узел для работы с веб-камерой -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen"/>
+  
+  <!-- Узел для запуска rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" output="screen">
+    <arg name="config" default="$(find usb_cam)/rviz/camera_config.rviz"/>
+  </node>
+</launch>
