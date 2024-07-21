@@ -1,4 +1,5 @@
 # Final
+# 0. Я выбрал создание робота пылесоса
 # 1.Установлена связь с GitHub
 # 2.У меня был установлен доступ через SSH поэтому могу прикрепить только скрин что он не требовал доступ (скрин1)
 # 3.Создал документ в котором будут опубликованы все скрины (Google docks: https://docs.google.com/document/d/1CYkbAVDnep8zt1lgW97q35fW7tTvb0qOLJ15zwkCcA8/edit?usp=sharing)
@@ -34,4 +35,23 @@ catkin_init_workspace src
 catkin_make
 Это создаст два дополнительных каталога в каталоге catkin_ws: build и devel,
 которые содержат продукты сборки и среды сборки соответственно. (Взято из Скрипты к видео №5 модуль 1 ) 
+# 9 Создание ROS (пакета скрин 10,11)
+catkin_create_pkg my_robot_package std_msgs rospy roscpp
+cd my_robot_package
+touch start_robot.launch
+<launch>
+  <!-- Узел для работы с Velodyne LIDAR -->
+  <node pkg="velodyne_driver" type="velodyne_node" name="velodyne_node" output="screen"/>
+  
+  <!-- Узел для работы с ODrive контроллерами -->
+  <node pkg="odrive_ros" type="odrive_node" name="odrive_node" output="screen"/>
+  
+  <!-- Узел для работы с XSens IMU -->
+  <node pkg="xsens_driver" type="xsens_node" name="xsens_node" output="screen"/>
+</launch> (создано с использованием ИИ)
+# 10 Сборка рабочего пространства (скрин 12)
+После добавления launch-файла необходимо пересобрать рабочее пространство
+catkin_make
+# 11 Установка пакета (скрин 13)
+sudo apt-get install ros-noetic-usb-cam
 
