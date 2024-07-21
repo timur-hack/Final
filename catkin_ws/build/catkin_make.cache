@@ -1,2 +1,2 @@
-
+my_robot_package
 -DCATKIN_DEVEL_PREFIX=/home/timur/Final_work/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/timur/Final_work/catkin_ws/install -G Unix Makefiles
